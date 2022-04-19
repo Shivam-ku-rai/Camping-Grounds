@@ -1,0 +1,25 @@
+{
+  "name": "camping-grounds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam-ku-rai/Camping-Grounds.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivam-ku-rai/Camping-Grounds/issues"
+  },
+  "homepage": "https://github.com/Shivam-ku-rai/Camping-Grounds#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+  }
+}
