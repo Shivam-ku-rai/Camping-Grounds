@@ -23,7 +23,9 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
 
-mongoose.connect('mongodb://localhost:27017/camping-arena');
+mongoose.connect('mongodb://mongo:27017/camping-arena');
+// mongoose.connect('mongodb://localhost:27017/camping-arena');
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
