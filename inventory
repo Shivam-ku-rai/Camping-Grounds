@@ -1,1 +1,1 @@
-172.16.135.6 ansible_user=shiva
+localhost ansible_user=shiva ansible_python_interpreter=/usr/bin/python3

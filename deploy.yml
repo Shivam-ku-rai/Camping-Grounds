@@ -1,12 +1,8 @@
 ---
-- name: Deploying Camping-arena.
-  hosts: all
+- name: Pull and Run docker image
+  hosts: localhost
   tasks:
-    - name: Pull Backend image
-      docker_image:
-        name: shivam2021123/camping-arena
-        source: pull
-    - name: Pull Database image
-      docker_image:
-          name: mongo
-          source: pull
+    - name: copy docker compose file from folder to remote host
+      copy:
+        src: ./docker-compose.yml
+        dest: ./
