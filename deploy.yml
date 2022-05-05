@@ -1,0 +1,12 @@
+---
+- name: Deploying Camping-arena.
+  hosts: all
+  tasks:
+    - name: Pull Backend image
+      docker_image:
+        name: shivam2021123/camping-arena
+        source: pull
+    - name: Pull Database image
+      docker_image:
+          name: mongo
+          source: pull

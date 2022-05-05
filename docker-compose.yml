@@ -2,7 +2,7 @@ version: "3"
 services:
         camping-arena:
             container_name: camping-arena
-            image: latest123/camping-arena
+            image: shivam2021123/camping-arena
             restart: always
             build: .
             ports:
