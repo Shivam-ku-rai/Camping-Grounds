@@ -1,1 +1,1 @@
-localhost ansible_user=shiva ansible_python_interpreter=/usr/bin/python3
+localhost ansible_user=shivam ansible_python_interpreter=/usr/bin/python3
