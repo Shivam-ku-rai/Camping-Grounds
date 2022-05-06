@@ -11,7 +11,7 @@ pipeline{
         stage('Git clone') {
             steps {
                 git url: 'https://github.com/Shivam-ku-rai/Camping-Grounds.git', branch: 'main'
-                credentialsId: 'Github_token_for_major'
+                // credentialsId: 'Github_token_for_major'
             }
         }
         stage('Install dependency') {
