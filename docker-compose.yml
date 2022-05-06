@@ -4,7 +4,7 @@ services:
             container_name: camping-arena
             image: shivam2021123/camping-arena
             restart: always
-            build: .
+            # build: .
             ports:
               - "3000:3000"
             links:
