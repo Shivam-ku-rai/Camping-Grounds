@@ -37,7 +37,7 @@ pipeline{
         }
         stage('Clean Docker Images') {
             steps {
-                sh 'docker rmi -f camping-arena'
+                sh 'docker rmi -f shivam2021123/camping-arena'
             }
         }
         stage('Ansible Deploy') {
