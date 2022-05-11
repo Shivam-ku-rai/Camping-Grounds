@@ -1,1 +1,4 @@
 # Camping-Grounds
+CampusArena is a website where users can create and review places. In order to review or create a place to visit, you must have an account.
+Users can create, edit, and remove camping places.Moreover, users can review places once, and edit or remove their review.
+We have also included maps to get the location of the places as well as adding the details of the person who added that place and review so that a person can call and  ask about the place. In addition to it, we have sorted the places by highest rating, prices according to the budget of the traveler, and we can search the places by name and location.We created the project by using Node.js, Express, MongoDB, and Bootstrap. Passport.js is used to handle authentication.Cloudinary has been used to store the images uploaded by the users.
