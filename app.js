@@ -24,7 +24,10 @@ const reviewRoutes = require('./routes/reviews');
 
 
 mongoose.connect('mongodb://mongo:27017/camping-arena');
-// mongoose.connect('mongodb://localhost:27017/camping-arena');
+
+
+
+// mongoose.connect('mongodb://localhost:27017/camping-arena');    //to run in local we have to use this
 
 
 const db = mongoose.connection;
