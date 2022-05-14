@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
-
+const logger = require("./logger");
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -23,13 +23,17 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
 
-mongoose.connect('mongodb://mongo:27017/camping-arena');
+// mongoose.connect('mongodb://mongo:27017/camping-arena');
 
 
+//to run in local we have to use this
 
-// mongoose.connect('mongodb://localhost:27017/camping-arena');    //to run in local we have to use this
+mongoose.connect('mongodb://localhost:27017/camping-arena')
+.then(() => logger.info("[" + date.toGMTString() + "] " + "DB CONNECTED"))
+  .catch((err) =>
+    logger.error("[" + date.toGMTString() + "] " + "DB CONNECTION ERROR", err));    
 
-
+var date = new Date();
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
 db.once("open", () => {
@@ -142,7 +146,9 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 
 
 app.get('/', (req, res) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/] called");
     res.render('home')
+    logger.info("[" + date.toGMTString() + "] " + "[/] successful");
 });
 
 

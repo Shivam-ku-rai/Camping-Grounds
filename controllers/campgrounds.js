@@ -4,17 +4,24 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
+const logger = require("/home/shivam/Desktop/Camping Grounds/logger");
+var date = new Date();
+
 
 module.exports.index = async (req, res) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/index] called");
     const campgrounds = await Campground.find({}).populate({
         path: 'popupText',
         strictPopulate: false,
     });
     res.render('campgrounds/index', { campgrounds })
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/index] successful");
 }
 
 module.exports.renderNewForm = (req, res) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/new] called");
     res.render('campgrounds/new');
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/new] successful");
 }
 
 module.exports.createCampground = async (req, res, next) => {
@@ -33,6 +40,7 @@ module.exports.createCampground = async (req, res, next) => {
 }
 
 module.exports.showCampground = async (req, res,) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/show] called");
     const campground = await Campground.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
@@ -44,9 +52,11 @@ module.exports.showCampground = async (req, res,) => {
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/show', { campground });
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/show] successful");
 }
 
 module.exports.renderEditForm = async (req, res) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/edit] called");
     const { id } = req.params;
     const campground = await Campground.findById(id)
     if (!campground) {
@@ -54,6 +64,7 @@ module.exports.renderEditForm = async (req, res) => {
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/edit', { campground });
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/edit] successful");
 }
 
 module.exports.updateCampground = async (req, res) => {

@@ -1,10 +1,16 @@
 const User = require('../models/user');
 
+const logger = require("/home/shivam/Desktop/Camping Grounds/logger");
+var date = new Date();
+
 module.exports.renderRegister = (req, res) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/users/register] called");
     res.render('users/register');
+    logger.info("[" + date.toGMTString() + "]" + " [/users/register] successful");
 }
 
 module.exports.register = async (req, res, next) => {
+    logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/register] called");
     try {
         const { email, username, password } = req.body;
         const user = new User({ email, username });
@@ -14,14 +20,18 @@ module.exports.register = async (req, res, next) => {
             req.flash('success', 'Welcome to Yelp Camp!');
             res.redirect('/campgrounds');
         })
+        logger.info("[" + date.toGMTString() + "]" + " [/campgrounds/register] successful");
     } catch (e) {
+        logger.error("[" + date.toGMTString() + "] " + "[/campgrounds/register]" + e);
         req.flash('error', e.message);
         res.redirect('register');
     }
 }
 
 module.exports.renderLogin = (req, res) => {
+    logger.info("[" + date.toGMTString() + "] " + "[/users/login] called");
     res.render('users/login');
+    logger.info("[" + date.toGMTString() + "] " + "[/users/login] successful");
 }
 
 module.exports.login = (req, res) => {
